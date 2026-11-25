@@ -1,5 +1,5 @@
 // gerado por adicionar.py a partir de produtos.json — edite o .json (ou use o script), não este arquivo
-window.VITRINE = {"selo": "GTA 6 · ACHADOS", "titulo": "A <span>vitrine</span>", "linha": "os achados que aparecem nos vídeos"};
+window.VITRINE = {"selo": "MAIS PROCURADOS", "titulo": "A vitrine", "linha": "os achados que aparecem nos vídeos"};
 window.PRODUTOS = [
  {
   "id": "luminaria-vi",
