@@ -1,0 +1,18 @@
+// gerado por adicionar.py a partir de produtos.json — edite o .json (ou use o script), não este arquivo
+window.VITRINE = {"selo": "GTA 6 · ACHADOS", "titulo": "A <span>vitrine</span>", "linha": "os achados que aparecem nos vídeos"};
+window.PRODUTOS = [
+ {
+  "id": "luminaria-vi",
+  "nome": "Luminária VI · GTA 6",
+  "info": "O VI de Leonida com palmeiras e pôr do sol. Troca de cor no controle: verde, azul, vermelho ou tudo junto.",
+  "preco": "",
+  "imagem": "img/luminaria-vi.jpg",
+  "link": "#link-pendente",
+  "loja": "LOJA",
+  "categoria": "Setup",
+  "video": "E se o GTA 6 saísse da tela?",
+  "etiqueta": "NO VÍDEO",
+  "destaque": true,
+  "ativo": true
+ }
+];
