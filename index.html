@@ -118,11 +118,12 @@
   const grupos = {};
   P.forEach(p => (grupos[p.categoria || 'Outros'] ||= []).push(p));
   const cats = Object.keys(grupos).sort((a, b) => ((ordem.indexOf(a) + 1) || 99) - ((ordem.indexOf(b) + 1) || 99));
+  let N = 0;
   const card = p => `
       <a class="card" href="${esc(p.link)}" target="_blank" rel="noopener sponsored nofollow">
         <div class="foto">
           ${p.etiqueta ? `<span class="tag">${esc(p.etiqueta)}</span>` : ''}
-          <img src="${esc(p.imagem)}" alt="${esc(p.nome)}" loading="lazy">
+          <img src="${esc(p.imagem)}" alt="${esc(p.nome)}" loading="${N++ < 4 ? 'eager' : 'lazy'}" decoding="async">
         </div>
         <div class="corpo">
           ${p.loja ? `<div class="loja">${esc(p.loja)}</div>` : ''}
