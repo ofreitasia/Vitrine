@@ -96,7 +96,7 @@ def main():
     ap = argparse.ArgumentParser(description='Coloca um produto de afiliado na vitrine.')
     ap.add_argument('link', nargs='?')
     for k in ('nome', 'info', 'preco', 'categoria', 'video', 'etiqueta', 'loja', 'imagem', 'id', 'ativo'): ap.add_argument('--' + k)
-    ap.add_argument('--destaque', action='store_true'); ap.add_argument('--editar'); ap.add_argument('--remover'); ap.add_argument('--listar', action='store_true')
+    ap.add_argument('--link', dest='link2', help='novo link (com --editar)'); ap.add_argument('--destaque', action='store_true'); ap.add_argument('--editar'); ap.add_argument('--remover'); ap.add_argument('--listar', action='store_true')
     a = ap.parse_args(); d = carregar(); P = d['produtos']
     if a.listar:
         for p in P: print(('  ' if p.get('ativo', True) else '× ') + f"{p['id']:<28} {p.get('preco') or '':<12} {p['nome']}  →  {p['link']}")
@@ -110,7 +110,7 @@ def main():
         if not p: sys.exit(f'não achei {a.editar}')
         for k in ('nome', 'info', 'preco', 'categoria', 'video', 'etiqueta', 'loja'):
             if getattr(a, k) is not None: p[k] = getattr(a, k)
-        if a.link: p['link'] = a.link
+        if a.link2 or a.link: p['link'] = a.link2 or a.link
         if a.ativo is not None: p['ativo'] = a.ativo.lower() in ('sim', 's', 'true', '1')
         if a.destaque: p['destaque'] = True
         if a.imagem: p['imagem'] = baixar_foto(a.imagem, p['id'])
